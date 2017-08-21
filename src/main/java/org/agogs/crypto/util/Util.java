@@ -1,4 +1,4 @@
-package org.crypto.util;
+package org.agogs.crypto.util;
 
 import javax.crypto.SecretKey;
 import java.util.Base64;
