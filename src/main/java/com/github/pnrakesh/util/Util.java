@@ -1,4 +1,4 @@
-package org.agogs.crypto.util;
+package com.github.pnrakesh.util;
 
 import javax.crypto.SecretKey;
 import java.util.Base64;

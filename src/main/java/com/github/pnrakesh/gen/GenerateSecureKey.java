@@ -1,9 +1,9 @@
-package org.agogs.crypto.gen;
+package com.github.pnrakesh.gen;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
-import org.agogs.crypto.util.Util;
+import com.github.pnrakesh.util.Util;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;

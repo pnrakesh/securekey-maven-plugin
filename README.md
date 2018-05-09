@@ -7,7 +7,7 @@ Usage: Add this maven plugin as a dependency in the plugins section in your pom 
 
 ```
 <plugin>
-	<groupId>org.agogs.crypto</groupId>
+	<groupId>com.github.pnrakesh</groupId>
 	<artifactId>securekey-maven-plugin</artifactId>
 	<executions>
 		<execution>
