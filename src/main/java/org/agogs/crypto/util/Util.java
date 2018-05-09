@@ -3,6 +3,11 @@ package org.agogs.crypto.util;
 import javax.crypto.SecretKey;
 import java.util.Base64;
 
+/**
+ * Expose utility methods
+ *
+ * @author pnrakesh
+ */
 public class Util {
     /**
      * Encode a {@link SecretKey} object into base64 encoded string

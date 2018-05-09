@@ -20,6 +20,9 @@ import static java.lang.System.out;
  * Create a {@link sun.security.ssl.SecureKey} instance and generate the Base64 encoded string
  * The secret to create SecureKey instance is passed as a parameter in the plugin configuration
  *
+ * @author pnrakesh
+ *
+ *
  * @goal generate
  * @phase complile
  */

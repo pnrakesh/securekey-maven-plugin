@@ -12,12 +12,12 @@ Usage: Add this maven plugin as a dependency in the plugins section in your pom 
 	<executions>
 		<execution>
 			<configuration>
-				<keySize>256</keySize><!-- optional, default is 128 bits-->
+				<keySize>256</keySize>                      <!-- optional, default is 128 bits-->
 				<algorithm>AES</algorithm>
-				<secret>secret</secret><!-- optional, default = random string -->
-				<fileName>key.properties</fileName><!-- optional, default = securekey.properties -->
-				<filePath>/path/to/file</filePath><!-- optional, default is project root-->
-				<propertyName>property.name</propertyName><!-- optional, default = secure.key.encoded -->
+				<secret>secret</secret>                     <!-- optional, default = random string -->
+				<fileName>key.properties</fileName>         <!-- optional, default = securekey.properties -->
+				<filePath>/path/to/file</filePath>          <!-- optional, default is project root-->
+				<propertyName>property.name</propertyName>  <!-- optional, default = secure.key.encoded -->
 			</configuration>
 		</execution>
 	</executions>
