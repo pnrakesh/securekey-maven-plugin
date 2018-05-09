@@ -6,7 +6,21 @@
     <packaging>maven-plugin</packaging>
     <version>1.0</version>
     <name>securekey-maven-plugin</name>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/pnrakesh/securekey-maven-plugin</url>
+
+    <scm>
+        <url>https://github.com/pnrakesh/securekey-maven-plugin</url>
+        <connection>scm:git:git@github.com:pnrakesh/securekey-maven-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:pnrakesh/securekey-maven-plugin.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -41,5 +55,49 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <!-- remove M2E warning complaining about usage of maven-enforcer-plugin
+                    in parent -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-enforcer-plugin</artifactId>
+                                        <versionRange>[1.0.0,)</versionRange>
+                                        <goals>
+                                            <goal>enforce</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+
+                <!-- override version of GPG plugin to use new GPG signing features -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.4.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
     </build>
 </project>
