@@ -5,9 +5,11 @@ The "secret" to generate the key is passed as a parameter in the plugin configur
 
 Usage: Add this maven plugin as a dependency in the plugins section in your pom file.
 
+_**Note: This is not yet available on maven central, meanwhile please download the jar and install in your local maven repository.**_
+
 ```
 <plugin>
-	<groupId>com.github.pnrakesh</groupId>
+	<groupId>com.github.agogs</groupId>
 	<artifactId>securekey-maven-plugin</artifactId>
 	<executions>
 		<execution>

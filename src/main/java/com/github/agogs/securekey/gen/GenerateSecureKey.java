@@ -1,9 +1,9 @@
-package com.github.pnrakesh.gen;
+package com.github.agogs.securekey.gen;
 
+import com.github.agogs.securekey.util.Util;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
-import com.github.pnrakesh.util.Util;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -20,7 +20,7 @@ import static java.lang.System.out;
  * Create a {@link sun.security.ssl.SecureKey} instance and generate the Base64 encoded string
  * The secret to create SecureKey instance is passed as a parameter in the plugin configuration
  *
- * @author pnrakesh
+ * @author agogs
  *
  *
  * @goal generate
