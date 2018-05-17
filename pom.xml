@@ -3,7 +3,7 @@
     <groupId>com.github.agogs</groupId>
     <artifactId>securekey-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <description>This plugin is used to generate a AES key using sun.security.ssl.SecureKey which is then
         Base64 encoded during build time and store it in the file system.
         The "secret" to generate the key is passed as a parameter in the plugin configuration</description>
@@ -30,7 +30,7 @@
         <url>https://github.com/agogs/securekey-maven-plugin</url>
         <connection>scm:git:git@github.com:agogs/securekey-maven-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:agogs/securekey-maven-plugin.git</developerConnection>
-        <tag>securekey-maven-plugin-1.0.2</tag>
+        <tag>securekey-maven-plugin-1.0</tag>
     </scm>
 
     <dependencies>
