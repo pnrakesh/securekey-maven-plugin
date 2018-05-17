@@ -3,6 +3,7 @@ package com.github.agogs.securekey.gen;
 import com.github.agogs.securekey.util.Util;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 
 import javax.crypto.KeyGenerator;
@@ -23,7 +24,7 @@ import static java.lang.System.out;
  * @author agogs
  *
  */
-@Mojo(name = "securekey")
+@Mojo(name = "securekey", defaultPhase = LifecyclePhase.COMPILE )
 public class GenerateSecureKey extends AbstractMojo {
 
     /**
