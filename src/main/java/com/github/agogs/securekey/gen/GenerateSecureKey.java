@@ -18,7 +18,7 @@ import java.util.UUID;
 import static java.lang.System.out;
 
 /**
- * Create a {@link sun.security.ssl.SecureKey} instance and generate the Base64 encoded string
+ * Create a {@link SecretKey} instance and generate the Base64 encoded string
  * The secret to create SecureKey instance is passed as a parameter in the plugin configuration
  *
  * @author agogs
@@ -57,6 +57,11 @@ public class GenerateSecureKey extends AbstractMojo {
      */
     private String propertyName;
 
+
+    /**
+     * This method implements the business logic of the plugin
+     * @throws MojoExecutionException
+     */
     public void execute() throws MojoExecutionException {
 
         if (algorithm == null) {
@@ -79,8 +84,11 @@ public class GenerateSecureKey extends AbstractMojo {
 
             out.println("keysize = " + keySize);
             out.println("algorithm = " + algorithm);
+            //generate the key
             SecretKey key = generateKey();
+            //encode the key to BASE64 string
             String encodedKey = Util.encodeAESKeyToBase64(key);
+            //write the BASE64 encoded string to file
             writeKeystringToFile(encodedKey);
         } catch (Exception e) {
             throw new MojoExecutionException(e.getMessage());
@@ -89,11 +97,18 @@ public class GenerateSecureKey extends AbstractMojo {
 
     }
 
+    /**
+     * Generate an instance of {@link SecretKey} using the provided algorithm, secret passphrase and the key size
+     * @return instance of {@link SecretKey}
+     * @throws UnsupportedEncodingException
+     */
     private SecretKey generateKey() throws UnsupportedEncodingException {
         try {
+            out.println("************ Generating the Secretkey ***********");
             final KeyGenerator keyGen = KeyGenerator.getInstance(algorithm);
             SecureRandom random = new SecureRandom((secret + UUID.randomUUID().toString()).getBytes(StandardCharsets.UTF_8.name()));
             keyGen.init(keySize, random);
+            out.println("************ Successfully generated Secretkey ***********");
             return keyGen.generateKey();
         } catch (final NoSuchAlgorithmException e) {
             // AES functionality is a requirement for any Java SE runtime
@@ -101,6 +116,12 @@ public class GenerateSecureKey extends AbstractMojo {
         }
     }
 
+    /**
+     *  Write the encoded BASE64 string to file.
+     *  The file path has to be specified in the configuration otherwise the path will default ot project root directory.
+     * @param keyString
+     * @throws IOException
+     */
     private void writeKeystringToFile(String keyString) throws IOException {
         File file = new File(filePath + File.separator + fileName);
         out.println("writing contents to file : " + file.getAbsolutePath());
@@ -108,5 +129,7 @@ public class GenerateSecureKey extends AbstractMojo {
         Properties properties = new Properties();
         properties.put(propertyName, keyString);
         properties.store(writer, "");
+        writer.close();
+        out.println("************ write successful ***********");
     }
 }
