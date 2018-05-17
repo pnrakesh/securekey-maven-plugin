@@ -22,9 +22,6 @@ import static java.lang.System.out;
  *
  * @author agogs
  *
- *
- * @goal generate
- * @phase complile
  */
 @Mojo(name = "securekey")
 public class GenerateSecureKey extends AbstractMojo {
