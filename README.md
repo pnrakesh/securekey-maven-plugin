@@ -1,6 +1,6 @@
 # securekey-maven-plugin
 
-This plugin is used to generate a AES key using `sun.security.ssl.SecureKey` which is then Base64 encoded during build time and store it in the file system.
+This plugin is used to generate a AES key using `javax.crypto.SecretKey` which is then Base64 encoded during build time and store it in the file system.
 The "secret" to generate the key is passed as a parameter in the plugin configuration
 
 This plugin is available on [maven central](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.agogs%22%20AND%20a%3A%22securekey-maven-plugin%22)
