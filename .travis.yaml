@@ -3,3 +3,6 @@ jdk:
   - oraclejdk8
   - oraclejdk9
   - openjdk8
+addons:
+  apt:
+    update: true
